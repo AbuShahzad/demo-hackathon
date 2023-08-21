@@ -3,10 +3,9 @@ import type { Image } from 'sanity'
 
 import { dataset, projectId } from '../env'
 
-const imageBuilder = createImageUrlBuilder({
-  projectId: projectId || '',
-  dataset: dataset || '',
-})
+import { client } from './client'
+
+const imageBuilder = createImageUrlBuilder(client);
 
 export const urlForImage = (source: Image) => {
   return imageBuilder?.image(source).auto('format').fit('max')
