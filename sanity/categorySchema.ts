@@ -1,32 +1,23 @@
 import { defineType, defineField } from "sanity";
 
-export const categorySchema = defineType({
-    name: "product",
-    title: "Product",
-    type: "document",
-    fields: [
-        defineField({
-            name: "name",
-            title: "Name",
-            type: "string",
-        }),
-        defineField({
-            name: "description",
-            title: "Description",
-            type: "string",
-        }),
-        defineField({
-            name: "image",
-            title: "Image",
-            type: "image",
-            options: {
-                hotspot: true,
-            },
-        }),
-        defineField({
-            name: "slug",
-            title: "Slug",
-            type: "slug",
-}),
-    ],
+export const category = defineType({
+    name: "category",
+  type: "document",
+  title: "Category",
+  fields: [
+    defineField({
+      name: "name",
+      type: "string",
+      title: "Category Name",
+    }),
+    defineField({
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      options: {
+        source: "slug",
+        maxLength: 96,
+      },
+    }),
+  ],
 });

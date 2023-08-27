@@ -15,9 +15,11 @@
     "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
+    "@vercel/postgres": "^0.4.1",
     "autoprefixer": "10.4.15",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "drizzle-orm": "^0.28.5",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "lucide-react": "^0.268.0",
@@ -29,9 +31,14 @@
     "react-icons": "^4.10.1",
     "sanity": "^3.8.3",
     "styled-components": "5.2",
+    "swiper": "^10.2.0",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.6",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "vercel": "^24.2.4"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.19.13"
   }
 }
