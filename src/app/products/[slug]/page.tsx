@@ -47,8 +47,8 @@ const AllProducts = async () => {
                     </div>
                 ))}
             </div>
-        </Wrapper>
 
+        </Wrapper>
     );
 };
 
