@@ -1,4 +1,4 @@
-
+"use client";
 
 import Link from 'next/link'
 import React from 'react'
@@ -11,8 +11,27 @@ import {
 import Image from 'next/image'
 import logo from '../../public/logo.webp'
 import Menu from './Menu'
+import { useAppDispatch, useAppSelector } from '@/redux/store';
+// import { fetchData } from '@/redux/features/cartSlice';
+import { useState } from 'react';
+
+
 
 const Navbar = () => {
+
+  const dispatch = useAppDispatch();
+  // const totalItems = useAppSelector((state) => state.cart.totalQuantity);
+
+
+  const [nav, setNav] = useState(false);
+
+
+  const handleNav = () => {
+    setNav(!nav);
+  }
+
+
+
   return (
    <nav>
  {/* Large Srceen */}
@@ -34,13 +53,19 @@ const Navbar = () => {
           />
         </div>
 
+       <Link href={"/cart"} onClick={handleNav}>
         <div className="w-10 h-10 rounded-full bg-[#f1f1f1] flex justify-center items-center relative">
               <AiOutlineShoppingCart size={25} />
               <span className="absolute left-7 bottom-7 w-5 h-5 bg-[#f02d34] text-white text-xs rounded-full flex justify-center items-center">
-               0
+                0
+               {/* {totalItems ? totalItems : 0} */}
               </span>
             </div>
+            </Link>
+</div>
 
+<div className='flex justify-center items-center lg:hidden'>
+  <AiOutlineMenu onClick={handleNav} size={25} />
 </div>
     </nav>
   )

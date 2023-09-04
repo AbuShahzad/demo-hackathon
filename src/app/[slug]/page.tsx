@@ -1,10 +1,10 @@
-import React from "react";
 import Wrapper from "@/components/sections/wrapper";
-import { client } from "../../../../sanity/lib/client";
+import { client } from "../../../sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
-import { urlForImage } from "../../../../sanity/lib/image";
+import { urlForImage } from "../../../sanity/lib/image";
 import { SanityProducts } from "@/components/sections/Interfaces";
+
 
 type Props = {
   params: {
@@ -15,18 +15,18 @@ type Props = {
 const getProductsbyCategory = async ({ params }: Props) => {
   const str = params.slug;
   const str2 = str.charAt(0).toUpperCase() + str.slice(1);
-  const query = `*[_type == "product" && category -> name == "${str2}"] | order(_createdAt asc) {
+  const query = `*[_type == "product" && category -> name == "${str2}"] | order(_updatedAt asc) {
     _id,
     name,
     image,
     subcat,
     price,
-    slug {
-      current
-    },
+    // category -> {slug {current}},
+    slug {current},
   }`;
   const res = await client.fetch(query);
   return res;
+
 };
 
 const Categorical = async ({ params }: Props) => {
@@ -77,7 +77,7 @@ type ICategory = {
 
 export async function generateStaticParams() {
   const query = `*[_type == "category"] {
-      slug: {
+      slug {
       current
       }
   }`;
@@ -86,4 +86,4 @@ export async function generateStaticParams() {
   return res.map((category) => ({
     slug: category.slug.current,
   }));
-} 
+}

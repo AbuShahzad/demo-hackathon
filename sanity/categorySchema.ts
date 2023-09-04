@@ -1,7 +1,7 @@
-import { defineType, defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const category = defineType({
-    name: "category",
+  name: "category",
   type: "document",
   title: "Category",
   fields: [
@@ -15,9 +15,10 @@ export const category = defineType({
       type: "slug",
       title: "Slug",
       options: {
-        source: "name",
+        source: "slug",
         maxLength: 96,
       },
     }),
+   
   ],
 });
