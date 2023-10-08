@@ -1,37 +1,33 @@
-"use client"
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import Image from "next/image";
+import Link from "next/link";
+import { urlForImage } from "../../../sanity/lib/image";
+import { client } from "../../../sanity/lib/client";
+import { SanityProducts } from "@/Interfaces";
 
-import { Swiper , SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import Link from 'next/link';
-import urlBuilder from '@sanity/image-url';
-import { urlForImage } from '../../../sanity/lib/image';
-import { client } from '../../../sanity/lib/client';
-import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import { SanityProducts } from './Interfaces';
-import Image from 'next/image';
+const getProducts = async () => {
+  const query = `*[_type == "product"] | order(_createdAt asc) {
+    _id,
+    image,
+    name,
+    slug {
+      current,
+    },
+    price,
+  }`;
 
-const getProducts =async () => {
-    const query = `*[_type == "product"] | order(_createdAt asc){
-      _id,
-      image,
-      name,
-      slug {
-        current,
-      },
-      price,
+  const res = client.fetch(query);
+  return res;
+};
 
-    }`;
-
-    const res = await client.fetch(query);
-    return res;
-}
-
-const Swiperslider =async () => {
-    const products: SanityProducts = await getProducts();
-    return (
-        <>
-        <Swiper
-        onSlideChange={() => console.log('slide change')}
+const SwipperSlider = async () => {
+  const products: SanityProducts[] = await getProducts();
+  return (
+    <>
+      <Swiper
+        onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
         breakpoints={{
           320: {
@@ -45,10 +41,10 @@ const Swiperslider =async () => {
           },
         }}
         spaceBetween={10}
-        >
-          {products.map((p, index) => (
+      >
+        {products.map((p, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col justify-center px-5 py-10 items-center">
+            <div className="flex flex-col md:flex-row justify-center px-5 py-10 items-center">
               <div className="flex flex-col justify-center items-start h-[400px] mx-10 w-full hover:scale-110 ease-in duration-300 gap-3">
                 <Link href={`products/${p.slug.current}`}>
                   <Image
@@ -71,4 +67,4 @@ const Swiperslider =async () => {
   );
 };
 
-export default Swiperslider;
+export default SwipperSlider;

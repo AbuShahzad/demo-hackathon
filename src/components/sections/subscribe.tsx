@@ -1,4 +1,4 @@
-import Wrapper from './wrapper';
+import Wrapper from '../shared/wrapper';
 
 const Newsletter = () => {
   return (
@@ -18,7 +18,7 @@ const Newsletter = () => {
             </button>
           </div>
           <div className="absolute bs:text-center center w-full font-bold text-[3.5em] bs:text-[3.8rem] sm:[4.2rem] lg:text-[5.5rem]  tracking-widest -z-[10] text-[#212121]/5 overflow-hidden">
-            Newsletter
+            <p className='items-center text-center'>Newsletter</p>
           </div>
         </div>
       </div>

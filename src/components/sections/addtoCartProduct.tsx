@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/components/sections/Interfaces";
+import { Product } from "@/Interfaces";
 import { useAppDispatch } from "@/redux/store";
 import { cartActions } from "@/redux/features/cartSlice";
 import { useState } from "react";

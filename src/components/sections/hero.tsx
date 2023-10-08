@@ -1,5 +1,5 @@
 import React from 'react'
-import Wrapper from './wrapper'
+import Wrapper from '../shared/wrapper'
 import StartShopping from './StartShopping'
 import Image from 'next/image'
 import feature from '../../public/header.webp'

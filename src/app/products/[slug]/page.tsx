@@ -1,8 +1,8 @@
-import Wrapper from "@/components/sections/wrapper";
+import Wrapper from '@/components/shared/wrapper'
 import { client } from "../../../../sanity/lib/client";
 import ImageComponent from "@/components/sections/ImageComponents";
 import AddtoCartProduct from "@/components/sections/addtoCartProduct"
-import { Product, SanityProducts } from "@/components/sections/Interfaces";
+import { Product, SanityProducts } from '@/Interfaces'
 // import { auth } from "@clerk/nextjs";
 
 type Props = {
@@ -28,6 +28,7 @@ const getProduct = async ({ params }: Props) => {
 const SingleProduct = async ({ params }: Props) => {
   // const { userId } = auth();
   const product: Product = await getProduct({ params });
+  // console.log(product);
 
   return (
     <Wrapper>

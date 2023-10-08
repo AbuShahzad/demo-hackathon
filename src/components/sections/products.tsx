@@ -1,5 +1,5 @@
-import Swiperslider from './swiperslider';
-import Wrapper from './wrapper'
+import Swiperslider from '../shared/swiperslider';
+import Wrapper from '../shared/wrapper'
 
 const ProductsFromSanity = () => {
   return (

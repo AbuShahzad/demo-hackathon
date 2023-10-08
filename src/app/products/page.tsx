@@ -1,9 +1,9 @@
-import Wrapper from "@/components/sections/wrapper";
+import Wrapper from "@/components/shared/wrapper";
 import Link from "next/link";
 import Image from "next/image";
 import { client } from "../../../sanity/lib/client";
 import { urlForImage } from "../../../sanity/lib/image";
-import { SanityProducts} from "@/components/sections/Interfaces";
+import { SanityProducts} from "@/Interfaces";
 
 
 
@@ -16,10 +16,10 @@ const getAllProducts = async () => {
         subcat,
         slug {
             current,
-        }
+        },
     }`;
     const res = await client.fetch(query);
-
+    // console.log(res);
     return res;
 };
 

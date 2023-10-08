@@ -1,4 +1,4 @@
-import { Product } from "@/components/sections/Interfaces";
+import { Product } from '@/Interfaces'
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";

@@ -1,10 +1,9 @@
-import Wrapper from "@/components/sections/wrapper";
+import Wrapper from "@/components/shared/wrapper"
 import { client } from "../../../sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
-import { SanityProducts } from "@/components/sections/Interfaces";
-
+import { SanityProducts } from "@/Interfaces";
 
 type Props = {
   params: {
@@ -14,20 +13,22 @@ type Props = {
 
 const getProductsbyCategory = async ({ params }: Props) => {
   const str = params.slug;
-  const str2 = str.charAt(0).toUpperCase() + str.slice(1);
-  const query = `*[_type == "product" && category -> name == "${str2}"] | order(_updatedAt asc) {
+  const str2 = str.charAt(0).toLowerCase() + str.slice(1);
+  const query = `*[_type == "product" && category->name == "${str}"] | order(_updatedAt asc) {
     _id,
     name,
     image,
     subcat,
     price,
-    // category -> {slug {current}},
-    slug {current},
+    slug {
+      current
+    },
   }`;
   const res = await client.fetch(query);
+  console.log(res);  
   return res;
-
 };
+
 
 const Categorical = async ({ params }: Props) => {
   const products: SanityProducts[] = await getProductsbyCategory({ params });

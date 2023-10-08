@@ -8,7 +8,7 @@ import Providers from '@/components/utils/Providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Dine Market',
+  title: 'Kifayat-Dine Market-Hackathon',
   description: 'Ecommerce shopping app',
 }
 

@@ -10,8 +10,8 @@ import {
 
 import Image from 'next/image'
 import logo from '../../public/logo.webp'
-import Menu from './Menu'
-import { useAppDispatch, useAppSelector } from '@/redux/store';
+import Menu from '../shared/Menu'
+// import { useAppDispatch, useAppSelector } from '@/redux/store';
 // import { fetchData } from '@/redux/features/cartSlice';
 import { useState } from 'react';
 
@@ -19,7 +19,7 @@ import { useState } from 'react';
 
 const Navbar = () => {
 
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   // const totalItems = useAppSelector((state) => state.cart.totalQuantity);
 
 

@@ -17,7 +17,6 @@ export interface CartItem {
 }
 
 export interface SanityProducts {
-  map(arg0: (p: any, index: any) => import("react").JSX.Element): import("react").ReactNode;
   _id: string;
   name: string;
   price: number;

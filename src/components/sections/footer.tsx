@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Wrapper from "./wrapper";
+import Wrapper from "../shared/wrapper";
 import { FaFacebook, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 
