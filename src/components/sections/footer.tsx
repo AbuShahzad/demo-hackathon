@@ -36,25 +36,25 @@ const Footer = () => {
           <div className="w-[20%] flex flex-col gap-3">
             <h3>Company</h3>
             <Link href={"/"}>About</Link>
-            <Link href={""}>Terms of Use</Link>
-            <Link href={""}>Privacy Policy</Link>
-            <Link href={""}>How it Works</Link>
-            <Link href={""}>Contact Us</Link>
+            <Link href={"#"}>Terms of Use</Link>
+            <Link href={"#"}>Privacy Policy</Link>
+            <Link href={"#"}>How it Works</Link>
+            <Link href={"#"}>Contact Us</Link>
           </div>
 
           {/* Support and its content */}
           <div className="w-[20%] flex flex-col gap-3">
             <h3>Support</h3>
-            <Link href={""}>Support Carrer</Link>
-            <Link href={""}>24h Services</Link>
-            <Link href={""}>Quick Chat</Link>
+            <Link href={"#"}>Support Carrer</Link>
+            <Link href={"#"}>24h Services</Link>
+            <Link href={"#"}>Quick Chat</Link>
           </div>
 
           {/* Contact and its content */}
           <div className="w-[20%] flex flex-col gap-3">
             <h3>Contact</h3>
-            <Link href={""}>Whatsapp</Link>
-            <Link href={""}>Support 24h</Link>
+            <Link href={"#"}>Whatsapp</Link>
+            <Link href={"#"}>Support 24h</Link>
           </div>
         </div>
       </Wrapper>

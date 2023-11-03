@@ -8,6 +8,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
 import { urlForImage } from "../../../sanity/lib/image";
 
+
 type IProps = {
   product: Product;
   qty: number;

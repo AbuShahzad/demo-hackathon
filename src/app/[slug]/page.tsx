@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
 import { SanityProducts } from "@/Interfaces";
+import { StringInputProps } from "sanity";
 
 type Props = {
   params: {
@@ -42,7 +43,7 @@ const Categorical = async ({ params }: Props) => {
                 key={product._id}
                 className="flex flex-col justify-center items-center mt-3 gap-2 hover:scale-110 ease-in duration-300"
               >
-                <Link href={`products/${product.slug.current}`}>
+                <Link href={`/products/${product.slug.current}` as `/products/${string}`}>
                   <Image
                     src={urlForImage(product.image[0]).url()}
                     width={300}

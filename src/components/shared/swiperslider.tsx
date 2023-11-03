@@ -22,6 +22,7 @@ const getProducts = async () => {
   return res;
 };
 
+// eslint-disable-next-line @next/next/no-async-client-component
 const SwipperSlider = async () => {
   const products: SanityProducts[] = await getProducts();
   return (
@@ -46,7 +47,7 @@ const SwipperSlider = async () => {
           <SwiperSlide key={index}>
             <div className="flex flex-col md:flex-row justify-center px-5 py-10 items-center">
               <div className="flex flex-col justify-center items-start h-[400px] mx-10 w-full hover:scale-110 ease-in duration-300 gap-3">
-                <Link href={`products/${p.slug.current}`}>
+                <Link href={`/products/${p.slug.current}`} >
                   <Image
                     src={urlForImage(p.image[0]).url()}
                     alt={p.name}
