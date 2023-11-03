@@ -14,13 +14,14 @@ import Menu from '../shared/Menu';
 import {TiDeleteOutline} from 'react-icons/ti';
 
 import { useAppDispatch, useAppSelector } from '@/redux/store';
-// import { fetchData } from '@/redux/features/cartSlice';
+import { fetchData } from '@/redux/features/cartSlice';
 import { useState } from 'react';
 
 const Navbar = () => {
 
   const dispatch = useAppDispatch();
-  const totalItems = useAppSelector((state) => state.cart.totalQuantity);
+  const totalItems = useAppSelector((state) => state.cartSlice.totalQuantity);
+  
 
 
   const [nav, setNav] = useState(false);

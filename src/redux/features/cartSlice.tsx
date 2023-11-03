@@ -20,22 +20,22 @@ const initialState: CartState = {
   error: null,
 };
 
-// export const fetchData = createAsyncThunk(
-//   "cart/fetchData",
-//   async (userId: string) => {
-//     const res = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/api/cart/${userId}`
-//     );
+export const fetchData = createAsyncThunk(
+  "cart/fetchData",
+  async (userId: string) => {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/cart/${userId}`
+    );
 
-//     if (!res.ok) {
-//       console.log("Failed to Fetch Data From API");
-//     }
+    if (!res.ok) {
+      console.log("Failed to Fetch Data From API");
+    }
 
-//     const data = await res.json();
+    const data = await res.json();
 
-//     return data; // Return the cart data as the payload
-//   }
-// );
+    return data; // Return the cart data as the payload
+  }
+);
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -104,25 +104,25 @@ export const cartSlice = createSlice({
       state = initialState;
     },
   },
-  // extraReducers: (builder) => {
-  //   // handle async actions with builder methods
-  //   builder.addCase(fetchData.pending, (state) => {
-  //     // set loading state to true
-  //     state.isLoading = true;
-  //   });
-  //   builder.addCase(fetchData.fulfilled, (state, action) => {
-  //     const { cartItems, totalQuantity, totalAmount } = action.payload;
-  //     state.items = cartItems;
-  //     state.totalAmount = totalAmount;
-  //     state.totalQuantity = totalQuantity;
-  //     state.isLoading = false;
-  //   });
-  //   builder.addCase(fetchData.rejected, (state, action) => {
-  //     // set loading state to false and error state to true
-  //     state.isLoading = false;
-  //     state.error = action.error;
-  //   });
-  // },
+  extraReducers: (builder) => {
+    // handle async actions with builder methods
+    builder.addCase(fetchData.pending, (state) => {
+      // set loading state to true
+      state.isLoading = true;
+    });
+    builder.addCase(fetchData.fulfilled, (state, action) => {
+      const { cartItems, totalQuantity, totalAmount } = action.payload;
+      state.items = cartItems;
+      state.totalAmount = totalAmount;
+      state.totalQuantity = totalQuantity;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchData.rejected, (state, action) => {
+      // set loading state to false and error state to true
+      state.isLoading = false;
+      state.error = action.error;
+    });
+  },
 });
 
 // export const selectIsLoading = (state: RootState) => state.cart.isLoading;
